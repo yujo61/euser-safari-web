@@ -1,65 +1,86 @@
-import Image from "next/image";
+import Button from "@/components/Button";
+import PackageCard from "@/components/PackageCard";
+import HeroActions from "@/components/HeroActions";
+import { safariPackages } from "@/data/packages";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="relative min-h-screen overflow-hidden bg-black">
+      {/* Hero Section */}
+      <section className="relative flex min-h-screen items-center justify-center px-6 pt-20 pb-12 text-center md:px-12">
+        <div className="absolute inset-0 z-0 bg-[url('/images/hero-safari.png')] bg-cover bg-center opacity-40 grayscale transition-opacity duration-1000 hover:opacity-60" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+        
+        <div className="relative z-10 max-w-4xl">
+          <span className="mb-4 inline-block text-sm font-light tracking-[0.3em] text-accent uppercase animate-fade-in text-shadow-sm">
+            Established 2024
+          </span>
+          <h1 className="mb-6 text-6xl font-semibold leading-tight tracking-tight text-white md:text-8xl lg:text-9xl">
+            Euser <span className="italic text-accent">Safaris</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mx-auto mb-10 max-w-lg text-lg font-light leading-relaxed text-zinc-300 md:text-xl">
+            Handcrafted wildlife experiences across Kenya's most iconic landscapes. 
+            Join us for a journey beyond the ordinary.
           </p>
+          <HeroActions />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Brand Story Section */}
+      <section id="about" className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="grid items-center gap-16 md:grid-cols-2">
+            <div>
+              <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">The Euser Legacy</span>
+              <h2 className="mb-8 text-4xl font-bold tracking-tight text-white md:text-5xl">
+                Redefining the <span className="italic">African Expedition</span>
+              </h2>
+              <p className="mb-6 text-lg font-light leading-relaxed text-zinc-400">
+                Founded on the silver plains of the Maasai Mara, Euser Safaris was born from 
+                a deep-rooted passion for Kenya's untouched wilderness and its majestic inhabitants.
+              </p>
+              <p className="mb-8 text-lg font-light leading-relaxed text-zinc-400">
+                We don't just offer tours; we curate life-changing encounters. Our guides carry 
+                generations of knowledge, ensuring every rustle in the grass tells a story and 
+                every sunset becomes a permanent memory.
+              </p>
+              <div className="grid grid-cols-2 gap-8 py-8 border-t border-white/10">
+                <div>
+                  <span className="block text-3xl font-bold text-white">100%</span>
+                  <span className="text-xs text-zinc-500 uppercase tracking-widest">Local Experts</span>
+                </div>
+                <div>
+                  <span className="block text-3xl font-bold text-white">10+</span>
+                  <span className="text-xs text-zinc-500 uppercase tracking-widest">Curated Routes</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative aspect-square overflow-hidden rounded-2xl grayscale transition-all hover:grayscale-0">
+              <img 
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1000&q=80" 
+                alt="Safari Guide" 
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Discovery Grid */}
+      <section id="packages" className="py-24 md:py-32 bg-zinc-950/50">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="mb-16 text-center">
+            <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase underline decoration-accent/30 underline-offset-8">Curated Experiences</span>
+            <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl">Choose Your <span className="italic">Frontier</span></h2>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {safariPackages.map((safari) => (
+              <PackageCard key={safari.id} safari={safari} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

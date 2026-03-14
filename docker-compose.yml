@@ -1,0 +1,15 @@
+services:
+  euser-safaris-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: euser-safaris-web
+    restart: always
+    environment:
+      - NODE_ENV=production
+    networks:
+      - n8n-network
+
+networks:
+  n8n-network:
+    external: true
