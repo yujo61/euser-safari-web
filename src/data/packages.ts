@@ -15,6 +15,10 @@ export interface SafariPackage {
   highlights: string[];
   itinerary: ItineraryItem[];
   image: string;
+  inclusions: string[];
+  exclusions: string[];
+  bestTime: string;
+  parkFees: string;
 }
 
 export const safariPackages: SafariPackage[] = [
@@ -32,7 +36,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 2, title: "Full Day Game Exploration", description: "Morning and afternoon game drives with a picnic lunch in the reserve." },
       { day: 3, title: "Early Morning Drive & Return", description: "Sunrise game drive followed by departure back to Nairobi." }
     ],
-    image: "/images/mara-majesty.png"
+    image: "/images/mara-majesty.png",
+    inclusions: ["Round-trip transport from Nairobi", "Accommodation in luxury tented camps", "All meals on safari", "Professional guide", "Game drives"],
+    exclusions: ["International flights", "Visas", "Gratuities", "Personal expenses"],
+    bestTime: "July to October (Migration season)",
+    parkFees: "USD 200 per adult/day (Non-resident)"
   },
   {
     id: "amboseli-elephants",
@@ -49,7 +57,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 3, title: "Cultural Engagement", description: "Morning game drive and afternoon Maasai cultural experience." },
       { day: 4, title: "Final Drive to Nairobi", description: "Leisurely breakfast and return journey." }
     ],
-    image: "/images/amboseli.png"
+    image: "/images/amboseli.png",
+    inclusions: ["Round-trip transport", "Luxury lodge accommodation", "All meals", "Maasai village visit", "Game drives"],
+    exclusions: ["International flights", "Visas", "Gratuities"],
+    bestTime: "June to October, January to February",
+    parkFees: "USD 100 per adult/day (Non-resident)"
   },
   {
     id: "samburu-wilderness",
@@ -67,7 +79,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 4, title: "Conservation Talk", description: "Visit to a local elephant research center." },
       { day: 5, title: "Return Journey", description: "Scenic drive back to Nairobi." }
     ],
-    image: "https://images.unsplash.com/photo-1511497584788-8767fe7d98ee?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/samburu.png",
+    inclusions: ["Round-trip 4x4 transport", "Eco-camp accommodation", "All meals", "Elephant center visit", "Guided game drives"],
+    exclusions: ["International flights", "Gratuities", "Premium drinks"],
+    bestTime: "June to September, December to March",
+    parkFees: "USD 100 per adult/day (Non-resident)"
   },
   {
     id: "lakes-and-lions",
@@ -86,7 +102,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 5, title: "Maasai Interaction", description: "Morning drive and village visit." },
       { day: 6, title: "Farewell Africa", description: "Return to Nairobi." }
     ],
-    image: "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/nakuru.png",
+    inclusions: ["All transport in safari land cruiser", "Full board accommodation", "Game drives", "Drinking water"],
+    exclusions: ["International flights", "Visas", "Alcoholic beverages"],
+    bestTime: "Year-round (Best July-October for Mara)",
+    parkFees: "Varies by park (USD 100-200/day)"
   },
   {
     id: "beach-bush-escape",
@@ -104,7 +124,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 6, title: "Tropical Bliss", description: "Relaxation and water sports in Diani." },
       { day: 10, title: "Direct Flight", description: "Return to Nairobi." }
     ],
-    image: "https://images.unsplash.com/photo-1506929193175-657193976ca8?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/diani-beach.png",
+    inclusions: ["Internal flights (Mara & Diani)", "Luxury accommodation", "All meals on safari, Half-board at beach", "Airport transfers"],
+    exclusions: ["International flights", "Water sports activities", "Spa treatments"],
+    bestTime: "August to October, December to March",
+    parkFees: "USD 200 per adult/day in Mara"
   },
   {
     id: "migration-epic",
@@ -121,7 +145,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 4, title: "Big Cat Tracking", description: "Following predators tailing the herds." },
       { day: 7, title: "Departure", description: "Final sunrise flight." }
     ],
-    image: "https://images.unsplash.com/photo-1519066629447-267fffa62d4b?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/migration.png",
+    inclusions: ["Internal flights", "Premium tented camp", "All meals and drinks (except premium)", "Exclusive game viewing"],
+    exclusions: ["International flights", "Hot air balloon safari"],
+    bestTime: "July to September",
+    parkFees: "USD 200 per adult/day (Non-resident)"
   },
   {
     id: "tsavo-red",
@@ -138,7 +166,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 3, title: "Rhino Sanctuary", description: "Visit to the Ngulia Rhino Sanctuary." },
       { day: 4, title: "Coastal Connection", description: "Drive to Mombasa or return to Nairobi." }
     ],
-    image: "https://images.unsplash.com/photo-1534135954627-6f03e670404a?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/tsavo.png",
+    inclusions: ["Round-trip transport", "Lodge accommodation", "All meals", "Guided game drives"],
+    exclusions: ["International flights", "Gratuities", "Personal items"],
+    bestTime: "June to October, January to February",
+    parkFees: "USD 52 per adult/day (Non-resident)"
   },
   {
     id: "peak-plains",
@@ -155,7 +187,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 5, title: "Solio Ranch", description: "Visit to the private leopard sanctuary." },
       { day: 8, title: "Highland Return", description: "Drive back to Nairobi." }
     ],
-    image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/mt-kenya.png",
+    inclusions: ["Transport in 4x4", "Highland lodge accommodation", "All meals", "Sanctuary entry fees"],
+    exclusions: ["International flights", "Gratuities", "Alcoholic drinks"],
+    bestTime: "June to September, December to March",
+    parkFees: "Varies by conservancy (USD 90-120/day)"
   },
   {
     id: "rift-valley-explorer",
@@ -170,7 +206,11 @@ export const safariPackages: SafariPackage[] = [
       { day: 1, title: "Naivasha Arrival", description: "Boat ride and lunch at the lake side." },
       { day: 2, title: "Hell's Gate Adventure", description: "Cycling and hiking in the gorges before return." }
     ],
-    image: "https://images.unsplash.com/photo-1504192010706-dd7f57989527?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/naivasha.png",
+    inclusions: ["Round-trip transport", "Overnight accommodation", "All meals", "Boat ride", "Bicycle rental"],
+    exclusions: ["International flights", "Gratuities", "Drinks"],
+    bestTime: "Year-round",
+    parkFees: "USD 30 per adult/day for Hell's Gate"
   },
   {
     id: "kenyan-grandeur",
@@ -188,6 +228,10 @@ export const safariPackages: SafariPackage[] = [
       { day: 10, title: "Mara Finale", description: "3 days in the crowning jewel." },
       { day: 14, title: "Final Departure", description: "Coastal breakfast and flight out." }
     ],
-    image: "https://images.unsplash.com/photo-1493633951388-33cc8b17c28d?auto=format&fit=crop&q=80&w=1200"
+    image: "/images/kenya-grandeur.png",
+    inclusions: ["All domestic flights & transport", "Premium luxury lodges", "All meals and selected drinks", "Private guide", "All activities"],
+    exclusions: ["International flights", "Premium spirits", "Visas"],
+    bestTime: "July to October, December to March",
+    parkFees: "All park fees included"
   }
 ];
