@@ -55,8 +55,8 @@ export default function RootLayout({
             };
           `}
         </Script>
-        {/* Euser Chat Widget — Logic and Styles (CDN) */}
-        <Script src="https://cdn.eusercdn.live/euser-chat.min.js" strategy="lazyOnload" />
+        {/* Euser Chat Widget — Logic and Styles (Local) */}
+        <Script src="/chat-widget/euser-chat.min.js" strategy="lazyOnload" />
       </body>
     </html>
   );
