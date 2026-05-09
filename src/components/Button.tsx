@@ -1,11 +1,12 @@
-"use client";
+import Link from "next/link";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline";
   children: React.ReactNode;
+  href?: string;
 }
 
-export default function Button({ variant = "primary", children, className, ...props }: ButtonProps) {
+export default function Button({ variant = "primary", children, className, href, ...props }: ButtonProps) {
   const baseStyles = "inline-flex h-14 items-center justify-center rounded-full px-8 font-medium transition-all duration-300 active:scale-95";
   
   const variants = {
@@ -13,6 +14,14 @@ export default function Button({ variant = "primary", children, className, ...pr
     secondary: "bg-white text-black hover:bg-accent hover:text-white",
     outline: "border border-white/20 text-white hover:bg-white/10 backdrop-blur-sm",
   };
+
+  if (href) {
+    return (
+      <Link href={href} className={`${baseStyles} ${variants[variant]} ${className}`}>
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <button className={`${baseStyles} ${variants[variant]} ${className}`} {...props}>

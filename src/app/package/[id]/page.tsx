@@ -71,23 +71,25 @@ export default async function PackagePage({ params }: PageProps) {
               </p>
             </section>
 
-            <section className="mb-16 border-b border-white/10 pb-16">
-              <h2 className="mb-8 text-2xl font-semibold text-white">Daily Itinerary</h2>
-              <div className="space-y-12">
-                {safari.itinerary.map((item) => (
-                  <div key={item.day} className="relative pl-12">
-                    <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full border border-accent text-xs font-bold text-accent">
-                      {item.day}
+            {safari.itinerary && safari.itinerary.length > 0 && (
+              <section className="mb-16 border-b border-white/10 pb-16">
+                <h2 className="mb-8 text-2xl font-semibold text-white">Daily Itinerary</h2>
+                <div className="space-y-12">
+                  {safari.itinerary.map((item) => (
+                    <div key={item.day} className="relative pl-12">
+                      <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full border border-accent text-xs font-bold text-accent">
+                        {item.day}
+                      </div>
+                      <div className="absolute left-4 top-8 h-full w-[1px] bg-gradient-to-b from-accent/50 to-transparent" />
+                      <h3 className="mb-3 text-xl font-medium text-white">{item.title}</h3>
+                      <p className="font-light leading-relaxed text-zinc-400">
+                        {item.description}
+                      </p>
                     </div>
-                    <div className="absolute left-4 top-8 h-full w-[1px] bg-gradient-to-b from-accent/50 to-transparent" />
-                    <h3 className="mb-3 text-xl font-medium text-white">{item.title}</h3>
-                    <p className="font-light leading-relaxed text-zinc-400">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section>
               <h2 className="mb-6 text-2xl font-semibold text-white">Highlights</h2>
@@ -104,31 +106,50 @@ export default async function PackagePage({ params }: PageProps) {
             </section>
           </div>
 
-          {/* Pricing Sidebar */}
-          <div className="lg:sticky lg:top-32 h-fit">
-            <div className="rounded-3xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-md">
-              <div className="mb-8 border-b border-white/10 pb-8">
-                <span className="block text-xs font-semibold tracking-widest text-accent uppercase mb-2">Exclusive Offer</span>
+          {/* Sidebar / CTA */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-32 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+              <div className="mb-6 border-b border-white/10 pb-6">
+                <span className="block text-sm font-light text-zinc-400 uppercase tracking-wider mb-2">Starting from</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-white">${safari.price}</span>
-                  <span className="text-sm font-light text-zinc-400">per person sharing</span>
+                  <span className="text-4xl font-bold text-white">
+                    {typeof safari.price === 'number' 
+                      ? `${safari.currency || '$'}${safari.price.toLocaleString()}`
+                      : safari.price}
+                  </span>
+                  <span className="text-sm text-zinc-400">per person</span>
                 </div>
               </div>
 
-              <div className="mb-8 space-y-4">
-                <div className="flex justify-between text-sm">
-                  <span className="font-light text-zinc-400 text-sm">Duration</span>
-                  <span className="font-medium text-white">{safari.duration}</span>
+              <div className="mb-8 space-y-4 text-sm">
+                <div className="flex justify-between border-b border-white/10 pb-4">
+                  <span className="text-zinc-400">Best Time</span>
+                  <span className="font-medium text-white text-right">{safari.bestTime}</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="font-light text-zinc-400 text-sm">Availability</span>
-                  <span className="font-medium text-green-500">Instant Booking</span>
+                {safari.parkFees && (
+                  <div className="flex justify-between border-b border-white/10 pb-4">
+                    <span className="text-zinc-400">Park Fees</span>
+                    <span className="font-medium text-white text-right max-w-[150px] leading-tight">{safari.parkFees}</span>
+                  </div>
+                )}
+                <div className="pt-4">
+                  <span className="mb-3 block text-zinc-400">What's Included</span>
+                  <ul className="space-y-2">
+                    {safari.inclusions.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-zinc-300">
+                        <span className="mt-1 text-accent">+</span>
+                        <span className="leading-tight">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              <Button className="w-full mb-4">Request Booking</Button>
-              <p className="text-center text-[10px] font-light text-zinc-500 italic">
-                No deposit required to start planning.
+              <Button href={`mailto:hello@euserasafaris.com?subject=Booking Inquiry: ${safari.name}`} className="w-full justify-center">
+                Request to Book
+              </Button>
+              <p className="mt-4 text-center text-xs text-zinc-500">
+                Or use the chat widget to speak with Claire instantly.
               </p>
             </div>
           </div>
